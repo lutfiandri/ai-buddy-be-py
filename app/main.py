@@ -7,6 +7,7 @@ from contextlib import asynccontextmanager
 
 from app.core.config import settings
 from app.core.langchain import chat_to_ai
+from app.rest.chat import CreateChatRequest
 
 # Set environment variables
 os.environ["OPENAI_API_KEY"] = settings.openai_api_key
@@ -40,10 +41,10 @@ def get_db_connection():
         yield conn
 
 
-@app.post("/sessions/{session_id}/questions/{question}")
-def create_chat(session_id: str, question: str, conn=Depends(get_db_connection)):
+@app.post("/sessions/{session_id}/chats")
+def create_chat(session_id: str, req: CreateChatRequest, conn=Depends(get_db_connection)):
     try:
-        response = chat_to_ai(chat=question, conn=conn,
+        response = chat_to_ai(chat=req.chat, conn=conn,
                               model=model, session_id=session_id)
         return response
     except Exception as e:

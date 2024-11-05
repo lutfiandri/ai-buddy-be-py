@@ -1,1 +1,6 @@
-POST http://localhost:8000/sessions/65a490d8-3b1b-4d1c-81ca-38b11d00ace8/questions/are+you+strong?
+POST http://localhost:8000/sessions/65a490d8-3b1b-4d1c-81ca-38b11d00ace8/chats
+content-type: application/json
+
+{
+  "chat": "who am you? can you sing twingkle twinkle little stars?"
+}
