@@ -4,3 +4,5 @@ langchain-openai
 langgraph
 psycopg
 psycopg_pool
+pydantic
+pydantic-settings
