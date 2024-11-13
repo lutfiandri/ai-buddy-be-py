@@ -1,5 +1,5 @@
 from pydantic import BaseModel
 
 
-class CreateChatRequest(BaseModel):
+class CreateRequest(BaseModel):
     chat: str

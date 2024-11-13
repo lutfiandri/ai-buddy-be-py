@@ -6,3 +6,6 @@ psycopg
 psycopg_pool
 pydantic
 pydantic-settings
+asyncpg
+sqlalchemy[asyncio]
+uuid7
