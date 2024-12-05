@@ -11,3 +11,4 @@ psycopg[binary,pool]
 uuid7
 
 fastapi[standard]
+bcrypt
