@@ -1,19 +1,13 @@
-from sqlalchemy import Column, Integer, DateTime, Text, func, ForeignKey, UUID
+from sqlmodel import SQLModel, Field
+from uuid import UUID
 from uuid_extensions import uuid7
-
-from app.core.sql import engine
-
-from .base import Base
+from datetime import datetime
 
 
-class Chat(Base):
+class Chat(SQLModel, table=True):
     __tablename__ = 'chats'
 
-    id = Column(UUID, primary_key=True, default=uuid7())
-    # user_id = Column(Integer, ForeignKey('user.id'))
-    type = Column(Text)
-    message = Column(Text)
-    created_at = Column(DateTime, default=func.now())
-
-
-# Base.metadata.create_all(engine)
+    id: UUID = Field(default_factory=uuid7, primary_key=True)
+    type: str
+    message: str
+    created_at: datetime = Field(default_factory=datetime.now)

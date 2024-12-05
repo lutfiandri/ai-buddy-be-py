@@ -2,10 +2,12 @@ langchain-core
 langchain-postgres
 langchain-openai
 langgraph
-psycopg
-psycopg_pool
+
 pydantic
 pydantic-settings
-asyncpg
-sqlalchemy[asyncio]
+
+sqlmodel
+psycopg[binary,pool]
 uuid7
+
+fastapi[standard]
